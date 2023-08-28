@@ -49,6 +49,7 @@ public class Signature extends BasePage {
 
 
     public void Signature() throws InterruptedException {
+        Thread.sleep(7000);
         click(SignButton);
         WaitForPresenceOfElement(SubmitButton,10);
         WaitForPresenceOfElement(Canvas,10);
