@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class ClaimInformation extends BasePage {
     WebDriver driver;
+    String TestEmail = "bishal@benekiva.com";
     public ClaimInformation(WebDriver driver){
         driver = PageDriver.getCurrentDriver();
         PageFactory.initElements(driver,this);
@@ -26,7 +27,7 @@ public class ClaimInformation extends BasePage {
     public By HomeRepresentative = By.xpath("//input[@id='Funeral_Home_Rep']");
     public By HomeArrangement = By.xpath("//input[@id='name_of_individual_making_funeral_home_arrangements']");
     public By EmailHomeArrangement = By.xpath("//input[@id='email_of_individual_making_funeral_home_arrangements']");
-    By PhoneHomeArrangement = By.xpath("//input[@id='phone_number_of_individual_making_funeral_home_arrangements']");
+    public By PhoneHomeArrangement = By.xpath("//input[@id='phone_number_of_individual_making_funeral_home_arrangements']");
 
     @FindBy(xpath = "//span[normalize-space()='CANCEL']")
     WebElement CancelButton;
@@ -36,17 +37,13 @@ public class ClaimInformation extends BasePage {
         WaitForPresenceOfElement(HomeRepresentative,10);
         WaitForPresenceOfElement(HomeArrangement,10);
         type(HomeRepresentative,Data);
+        Thread.sleep(3000);
         type(HomeArrangement,Data);
-        type(EmailHomeArrangement,Data);
+        Thread.sleep(3000);
+        type(EmailHomeArrangement,TestEmail);
+        Thread.sleep(3000);
         type(PhoneHomeArrangement,Phone);
-        tab(PhoneHomeArrangement);
-        tab(PhoneHomeArrangement);
-        tab(PhoneHomeArrangement);
         Thread.sleep(3000);
     }
 
-    public void ScrollThePage(){
-        JavaScriptHelper javaScriptHelper = new JavaScriptHelper(driver);
-        javaScriptHelper.scroll_to_View(CancelButton);
-    }
 }

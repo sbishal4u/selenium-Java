@@ -95,10 +95,4 @@ public class Signature extends BasePage {
         WaitForPresenceOfElement(NotificationCloseIcon,10);
         WaitForPresenceOfElement(new BeneficiaryTab(driver).Beneficiary,10);
     }
-
-
-
-
-
-
 }
