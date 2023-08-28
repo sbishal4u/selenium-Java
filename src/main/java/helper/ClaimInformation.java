@@ -30,7 +30,7 @@ public class ClaimInformation extends BasePage {
 
     @FindBy(xpath = "//span[normalize-space()='CANCEL']")
     WebElement CancelButton;
-    public void Enter_Funeral_home_representative() throws IOException, ParseException {
+    public void Enter_Funeral_home_representative() throws IOException, ParseException, InterruptedException {
         String Data = new RandomNames().GenerateRandomName();
         String Phone = new ReadJSonData().Read_the_value_from_json(path,"PhoneNumber");
         WaitForPresenceOfElement(HomeRepresentative,10);
@@ -40,6 +40,9 @@ public class ClaimInformation extends BasePage {
         type(EmailHomeArrangement,Data);
         type(PhoneHomeArrangement,Phone);
         tab(PhoneHomeArrangement);
+        tab(PhoneHomeArrangement);
+        tab(PhoneHomeArrangement);
+        Thread.sleep(3000);
     }
 
     public void ScrollThePage(){
